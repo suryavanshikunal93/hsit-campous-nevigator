@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simple campus navigation guide for Hirasugar Institute of Technology, Nidasoshi.">
+  <title>HSIT Campus Navigator</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark" aria-hidden="true">H</div>
+    <div class="brand-copy">
+      <h1>HSIT Campus Navigator</h1>
+      <p>Hirasugar Institute of Technology · Nidasoshi</p>
+    </div>
+    <button id="locateBtn" class="button button-light" type="button">◎ Find me</button>
+  </header>
+
+  <main class="app-layout">
+    <aside class="sidebar">
+      <section class="intro">
+        <p class="eyebrow">CAMPUS GUIDE</p>
+        <h2>Where do you want to go?</h2>
+        <p class="muted">Search for a place, view its photo, then select it on the map.</p>
+      </section>
+
+      <label class="search-box" for="searchInput">
+        <span aria-hidden="true">⌕</span>
+        <input id="searchInput" type="search" placeholder="Search library, hostel, canteen..." autocomplete="off">
+      </label>
+
+      <div id="categoryFilters" class="filters" aria-label="Filter places">
+        <button class="filter active" data-category="All" type="button">All</button>
+        <button class="filter" data-category="Academic" type="button">Academic</button>
+        <button class="filter" data-category="Facilities" type="button">Facilities</button>
+        <button class="filter" data-category="Food" type="button">Food</button>
+        <button class="filter" data-category="Accommodation" type="button">Hostel</button>
+        <button class="filter" data-category="Nearby" type="button">Nearby</button>
+      </div>
+
+      <div class="results-heading">
+        <h3>Places</h3>
+        <span id="placeCount" class="count">8 places</span>
+      </div>
+      <div id="placeList" class="place-list" aria-live="polite"></div>
+      <p class="sidebar-note">Photos are supplied for this project. Map pin positions are starter estimates and should be checked on campus.</p>
+    </aside>
+
+    <section class="map-panel" aria-label="Campus map">
+      <div class="map-toolbar">
+        <div>
+          <strong>Campus map</strong>
+          <p id="mapStatus">Choose a place to see it on the map.</p>
+        </div>
+        <div class="toolbar-actions">
+          <button id="showAllBtn" class="button button-outline" type="button">Show all</button>
+          <button id="resetBtn" class="button button-outline" type="button">Reset</button>
+        </div>
+      </div>
+      <div id="map"></div>
+      <div class="map-footer">
+        <span><span class="status-dot"></span> OpenStreetMap data · Leaflet map</span>
+        <span id="mapSubstatus">Select a place for details</span>
+      </div>
+      <div id="notice" class="notice" role="status" hidden></div>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <p>Student-made campus guide. Map data © OpenStreetMap contributors.</p>
+    <p>For campus use; confirm locations and paths before relying on directions.</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="script.js"></script>
+</body>
+</html>
